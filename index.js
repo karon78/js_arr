@@ -66,3 +66,88 @@ const arraySpDel = [1, 2, 4, 6, 3, 64, 23, 56, 55, 0];
 arraySpDel.splice(7,2)
 
 console.table(arraySpDel);
+
+/**
+ * Создать еще один массив из 5 случайных чисел и написать следующие функции.
+ */
+
+const array2 = [2,5,4,9,23];
+
+/**
+ * Функция принимает 2 массива и возвращает новый массив,
+ * в котором собраны все элементы из двух массивов без повторений.
+ * @type {number[]}
+ */
+
+const arrayResult = deleteMatches();
+
+/**
+ * removing meeting values inside an array
+ * @param []
+ * @returns {number[]}
+ */
+function deleteMatches() {
+    let arrayR = array1.concat(array2);
+
+    for (let i = 0; i < arrayR.length; ++i)
+    {
+        for (let j = i + 1; j < arrayR.length; ++j)
+        {
+            if (arrayR[i] === arrayR[j]) {
+                arrayR.splice(j--, 1)
+            }
+        }
+
+    }
+    return arrayR;
+}
+console.table(arrayResult);
+
+/**
+ * Функция принимает 2 массива и возвращает новый массив,
+ * в котором собраны общие элементы (то есть элементы,
+ * которые встречаются и в первом и во втором массивах) без повторений.
+ * @type {[]}
+ */
+
+const arrayResultAdd = addCommonValue();
+/**
+ * collects the same values into an array
+ * @param []
+ * @returns {number[]}
+ */
+function addCommonValue() {
+    let arrayR = array1.concat(array2);
+    let arrR = [];
+    for (let i = 0; i < arrayR.length; ++i)
+    {
+        for (let j = i + 1; j < arrayR.length; ++j)
+        {
+            if (arrayR[i] === arrayR[j]) {
+                arrR.push(arrayR[j]);
+            }
+        }
+
+    }
+    return arrR;
+}
+console.table(arrayResultAdd);
+
+/**
+ * Функция принимает 2 массива и возвращает новый массив,
+ * в котором собраны все элементы из первого массива, которых нет во втором массиве.
+*/
+
+const arrayResult2 = function () {
+    let arrRes = array1;
+    for (let i = 0; i < arrRes.length; ++i) {
+        for (let j = 0; j < array2.length; ++j){
+            if (arrRes[i] === array2[j]) {
+                arrRes.splice(i--, 1)
+            }
+        }
+    }
+    return arrRes
+
+};
+console.table(arrayResult2());
